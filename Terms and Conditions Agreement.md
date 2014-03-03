@@ -36,26 +36,23 @@ Esri staff will vote for winners based on the usability, creativity, and coding 
 Odds of winning will vary depending on the number of submitted valid code sets and the skill and quality of the submitted code based on the judging criteria described above.
 
 ## Prizes
-Prizes will be awarded to entries based on judging by Esri staff. Applicant may win only one (1) of the three (3) winning spots (that is, Best Overall App, Best Responsive App, or Best Web-Mobile App).
+Prizes will be awarded to entries based on judging by Esri staff. Applicant may win only one (1) of the three (3) winning spots.
 
-### Best Overall App
+### 1st Place
 - One (1) ArcGIS Online subscription for one year and One (1) complimentary pass to the 2015 Esri Developer Summit*
-- Best App certificate
 
-### Best Responsive App
+### 2nd Place
 - One (1) ArcGIS Online subscription for one year
-- Best Responsive App certificate
 
-### Best Web-Mobile App
+### 3rd Place
 - One (1) ArcGIS Online subscription for one year
-- Best Web Mobile certificate
 
 *Please Note: Failure of a winner to claim the prize awarded may result in disqualification and selection of an alternate winner. Prizes are nontransferable, and no substitutions will be made. Winner is solely responsible for any taxes on the prizes, and Sponsor may withhold such taxes from the prize amount prior to award to winners. Distribution of prizes is subject to and must fully comply with U.S. export laws and all other applicable laws.*
 
 \* Travel, accommodations/lodging, and other related expenses are the financial responsibility of the winners.
 
 ## Notification of Winners
-Winners will be announced no later than Sunday, March 9, 2014, at the 2014 Esri International Developer Summit in Palm Springs, California, USA. Applicants do not need to be present to win. Winners will be notified by phone and/or e-mail if they are not attending the 2014 Developer Summit. If Sponsor is unable to reach the winner by phone and/or e-mail within three (3) separate attempts, the corresponding prize will be awarded to an alternate winner. Should multiple Applicants using the same e-mail account enter this Contest and a dispute thereafter arises regarding the identity of Applicant, the authorized account subscriber of said e-mail account at the time of entry will be considered the Applicant. "Authorized account subscriber" is defined as the natural person who is assigned an e-mail address by an Internet access provider, online service provider, or other organization that is responsible for assigning e-mail addresses or the domain associated with the submitted e-mail address.
+Winners will be announced no later than Wednesday, March 12, 2014, at the 2014 Esri International Developer Summit in Palm Springs, California, USA. Applicants do not need to be present to win. Winners will be notified by phone and/or e-mail if they are not attending the 2014 Developer Summit. If Sponsor is unable to reach the winner by phone and/or e-mail within three (3) separate attempts, the corresponding prize will be awarded to an alternate winner. Should multiple Applicants using the same e-mail account enter this Contest and a dispute thereafter arises regarding the identity of Applicant, the authorized account subscriber of said e-mail account at the time of entry will be considered the Applicant. "Authorized account subscriber" is defined as the natural person who is assigned an e-mail address by an Internet access provider, online service provider, or other organization that is responsible for assigning e-mail addresses or the domain associated with the submitted e-mail address.
 
 Winners will be required to verify their eligibility. A list of the winners can be found at [www.esri.com](http://www.esri.com).
 

@@ -1,30 +1,33 @@
 #(ArcGIS.js <= 100) Responsive Edition
-###Welcome to the ArcGIS JavaScript Code Challenge!
+###Welcome to the Esri Mapping App Code Challenge
 
-Everybody loves a cool mapping app, but everyone loves a cool, RESPONSIVE mapping app even more! This year's challenge is to write the best responsive mapping app with the [ArcGIS API for JavaScript](http://help.arcgis.com/en/webapi/javascript/arcgis/index.html) in 100 lines or less. Prizes will be awarded for **1) the best overall app**, **2) best responsive app** (works on desktops, laptops, tablets & phones) and **3) best web-mobile app** (works on phone web browsers). The prizes include one-year subscriptions to [ArcGIS Online](http://www.esri.com/software/arcgis/arcgisonline) ($2500 each) and also a free 2015 Esri Dev Summit pass ($1000)!
+Everybody loves a cool mapping app, but everyone loves a cool, [responsive](http://en.wikipedia.org/wiki/Responsive_web_design) mapping app even more! The challenge again is to write the best mapping app with the [ArcGIS API for JavaScript](http://help.arcgis.com/en/webapi/javascript/arcgis/index.html) in 100 lines or less, except this time we'll be giving extra marks for apps that run well across mutiple devices (desktops, tablets and phones). 
+
+The prizes include one-year subscriptions to [ArcGIS Online](http://www.esri.com/software/arcgis/arcgisonline) ($2500 each) and also a free 2015 Esri Dev Summit pass ($1000) for the overall winner.
 
 To enter just make a pull request to submit your code (see [How to Enter](#how-to-enter) below).
-We'll be announcing the winners live on stage at the [2014 Esri International Developer Summit](http://www.esri.com/events/devsummit/index.html), but **you don't need to attend the conference to win**.
+We'll be announcing the winners live on stage at the [2014 Esri International Developer Summit](http://www.esri.com/events/devsummit/index.html), but don't worry, **you don't need to attend the conference to win**. Just submit your code on time and you are good to go.
 
 Best of luck!
 
-[View the entries so far](http://esri.github.io/100-lines-or-less-js/index.html)
-
 <div style="text-align:center;"><img src="http://esri.github.io/img/100-lines-responsive.gif"></div>
-
-## Winners
-Check back here on Thursday March 13th, 2014!
 
 ## Contest Period
 - Starts: 9:00 AM PST Friday, Feb 1, 2014
 - Closes: 6:00 PM PST Sunday Mar 9, 2014 (No entries will be accepted after this time.)
+
+## Entries
+* [View all of the entries here](http://esri.github.io/100-lines-or-less-js/index.html)
+* Check back here on Wednesday March 12th, 2014 to see the winners!
 
 ## How to Enter
 1. Fork and then clone this repo.
 2. Add a sub-folder with your app in it (see [example](basemaptour)).
 3. Make a pull request on the **master** branch to submit your entry. This request represents your agreement to the [Terms and Conditions](Terms%20and%20Conditions%20Agreement.md).
 
-NOTE: Be sure to Pull and Merge from this repo to get the latest before making your pull request!  We'll publish the app on gh-pages for you.
+NOTE: 
+* Be sure to Pull and Merge from this repo to get the latest before making your pull request!  We'll publish the app on gh-pages for you.
+* Please create an Issue if you have a question.
 
 ## Rules
 
@@ -40,16 +43,16 @@ NOTE: Be sure to Pull and Merge from this repo to get the latest before making y
 See all rules, terms and conditions [here](Terms%20and%20Conditions%20Agreement.md).
 
 ## What can I win?
-* Best Overall App: One year ArcGIS Online Subscription & Esri Developer Summit Pass for 2015
-* Best Responsive App: One year ArcGIS Online Subscription
-* Best Web Mobile App: One year ArcGIS Online Subscription
+* 1st Place - One year ArcGIS Online Subscription & Esri Developer Summit Pass for 2015
+* 2st Place - One year ArcGIS Online Subscription
+* 3st Place - One year ArcGIS Online Subscription
 
 ## Judging Criteria
 
 1. Effective use of the ArcGIS API for JavaScript
 2. UX and UI
 3. Coding style
-4. Desktop, Responsive or Web-Mobile
+4. Responsive design
 
 ## Judges
 - [@AL_Laframboise](https://twitter.com/AL_Laframboise) 
@@ -68,6 +71,7 @@ Follow the structure of [this](basemaptour) example.  View it live [here](http:/
 \project\js\arcgis.js
 \project\css\
 \project\images\
+\project\info.json
 ```
 
 ```html
@@ -91,11 +95,11 @@ Follow the structure of [this](basemaptour) example.  View it live [here](http:/
 </html>
 ```
 
-Optionally include a `\project\info.json` file to specify how your project is listed in the [code challenge entries page](http://arcgis.github.io/100-lines-or-less-js/).
+Please also include a `\project\info.json` file to specify how your project is listed in the [code challenge entries page](http://esri.github.io/100-lines-or-less-js/).
 ```json
 {
-	"projectName": "Your App Title",
-	"githubAuthor": "Your Github Username"
+  "projectName": "Your App Title",
+  "githubAuthor": "Your Github Username"
 }
 ```
 
