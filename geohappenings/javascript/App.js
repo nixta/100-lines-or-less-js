@@ -17,7 +17,7 @@ initialize: function() {
 	});
 	$('#dev-summit').on('click',function() { $this.map.centerAndZoom([-116.5382, 33.8260], 16)});
 	this.fb.on('value', function (ss) {
-		$this.messages = [];
+		$this.messages = []; $this.graphics = {};
 		_.each(ss.val(), function (item) { _.each(item.messages, function (item2) {
 				$this.messages.push(item2) });
 		});
@@ -42,8 +42,8 @@ saveMsg: function (evt) {
 	if (!loc || !loc.lat || !loc.lon) {	$('#no-location-modal').modal(); return; };
 	this.fb.on('value', function (ss) {	exists = (ss.val() !== null) });
 	if(!exists){ this.fb.child(name).set({text: name}) };
-	this.fb.child(name).child('messages').push({ name: name, text: text,
-			lat: loc.lat, lon: loc.lon, timeStamp: tC });
+	this.fb.child(name).child('messages').push({ name: name, text: text, 
+		lat: loc.lat, lon: loc.lon, timeStamp: tC });
 	$('#share-modal').modal('hide'); $('#message-input').val(''); this.model.set('loc', null);
 },getLocation: function (model) {
 	if (navigator.geolocation) {
@@ -64,8 +64,9 @@ saveMsg: function (evt) {
 },activateClickListener: function() {
 	var $this = this;
 	$('.chat-item').on('click', function(evt) {
-		var d = evt.currentTarget.dataset;
+		var d = evt.currentTarget.dataset, g = $this.graphics[d.gid], iw = $this.map.infoWindow;
 		$this.map.centerAndZoom(new esri.geometry.Point(d.lon, d.lat), 15);
+    iw.setTitle(g.getTitle()); iw.setContent(g.getContent()); iw.show(g.geometry);
 		$('#chat-modal').modal('hide');
 	});
 },displayChatMessages: function() {
@@ -74,16 +75,15 @@ saveMsg: function (evt) {
 		if (a.timeStamp < b.timeStamp) { return -1; } return 0;
 	});
 	_.each(this.messages, function (msg) {
-	var tC = new Date().getTime();
+	var tC = new Date().getTime(), gID = msg.name + '_' + msg.timeStamp;
 	tE = Math.floor((tC - msg.timeStamp) / 1000 / 60); //get time elapsed since the previous messages in firebase
 	tS = (tE > 60) ? Math.floor((tE * 60) / 3600)  + ' hours ago' :  tE + ' minutes ago';
 	$('<li class="list-group-item chat-item"></li>').append('<div class="chat-date">' +
 		msg.name +':  '+ tS +  '</div><div>'+ msg.text + '</div>')
-		.attr('data-lat', msg.lat).attr('data-lon',msg.lon).prependTo($('#chat-container'));
+		.attr('data-lat', msg.lat).attr('data-lon',msg.lon).attr('data-gid',gID).prependTo($('#chat-container'));
 	if (msg.lat && msg.lon && $this.map.graphics) {
-		var pt = new esri.geometry.Point(msg.lon, msg.lat);
-		var g = new esri.Graphic(pt, $this.symbol);
-		$this.map.graphics.add(g);
+		var pt = new esri.geometry.Point(msg.lon, msg.lat), g = new esri.Graphic(pt, $this.symbol);
+		$this.map.graphics.add(g); $this.graphics[gID] = g;
 	};
     g.setInfoTemplate(new esri.InfoTemplate().setTitle(msg.name +' '+ tS).setContent(msg.text));
 });
