@@ -12,8 +12,7 @@ initialize: function() {
 	this.map = new esri.Map('map', {basemap: 'osm', center: [-98.737039, 38.737039], zoom: 4 });
 	$('.current-location').on('click',function() { $this.getLocation($this.model) });
 	$('#search-input').on('typeahead:selected', function (evt, datum, name) {
-		$this.map.centerAndZoom(new esri.geometry.Point(datum.lon, datum.lat), 15);
-		$('#search-modal').modal('hide');
+		$this.selectMessage(datum.name + '_' + datum.timeStamp); $('#search-modal').modal('hide');
 	});
 	$('#dev-summit').on('click',function() { $this.map.centerAndZoom([-116.5382, 33.8260], 16)});
 	this.fb.on('value', function (ss) {
@@ -35,8 +34,7 @@ toggleShare: function (model) {
 	} else { $('.share-message').addClass('disabled') };
 },
 saveMsg: function (evt) {
-	var loc = this.model.get('loc');
-	var exists; var tC = new Date().getTime();
+	var loc = this.model.get('loc'), exists, tC = new Date().getTime();
 	var name = $('#name-input').val(); var text = $('#message-input').val();
 	if (!name || !text) { $('#alert-modal').modal(); return; }
 	if (!loc || !loc.lat || !loc.lon) {	$('#no-location-modal').modal(); return; };
@@ -61,13 +59,14 @@ saveMsg: function (evt) {
 	var x = esri.geometry.xyToLngLat(evt.mapPoint.x, evt.mapPoint.y, true);
 	this.model.set('loc', { lat: x[1], lon: x[0] });
     dojo.disconnect(this.mch) & $('#share-modal').modal('show');
+},selectMessage: function(gid) {
+	var g = this.graphics[gid], iw = this.map.infoWindow;
+	this.map.centerAndZoom(g.geometry, 15);
+  iw.setTitle(g.getTitle()); iw.setContent(g.getContent()); iw.show(g.geometry);
 },activateClickListener: function() {
 	var $this = this;
 	$('.chat-item').on('click', function(evt) {
-		var d = evt.currentTarget.dataset, g = $this.graphics[d.gid], iw = $this.map.infoWindow;
-		$this.map.centerAndZoom(new esri.geometry.Point(d.lon, d.lat), 15);
-    iw.setTitle(g.getTitle()); iw.setContent(g.getContent()); iw.show(g.geometry);
-		$('#chat-modal').modal('hide');
+		$this.selectMessage(evt.currentTarget.dataset.gid); $('#chat-modal').modal('hide');
 	});
 },displayChatMessages: function() {
 	var $this = this; $('#chat-container').empty();
@@ -80,7 +79,8 @@ saveMsg: function (evt) {
 	tS = (tE > 60) ? Math.floor((tE * 60) / 3600)  + ' hours ago' :  tE + ' minutes ago';
 	$('<li class="list-group-item chat-item"></li>').append('<div class="chat-date">' +
 		msg.name +':  '+ tS +  '</div><div>'+ msg.text + '</div>')
-		.attr('data-lat', msg.lat).attr('data-lon',msg.lon).attr('data-gid',gID).prependTo($('#chat-container'));
+		.attr('data-lat', msg.lat).attr('data-lon',msg.lon).attr('data-gid',gID)
+		.prependTo($('#chat-container'));
 	if (msg.lat && msg.lon && $this.map.graphics) {
 		var pt = new esri.geometry.Point(msg.lon, msg.lat), g = new esri.Graphic(pt, $this.symbol);
 		$this.map.graphics.add(g); $this.graphics[gID] = g;
